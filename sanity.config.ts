@@ -4,8 +4,8 @@ import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemaTypes'
 
 export default defineConfig({
-  name: 'default',
-  title: 'Unknown project',
+  name: 'conflict-wire',
+  title: 'Conflict Wire',
 
   projectId: 'cokqkg27s1wfqc8t3q8ozd06',
   dataset: 'production',
