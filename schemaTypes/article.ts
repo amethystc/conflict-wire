@@ -45,11 +45,20 @@ export default defineType({
       ],
     }),
     defineField({
-      name: 'category',
-      title: 'Category',
+      name: 'region',
+      title: 'Region',
       type: 'reference',
-      to: [{type: 'category'}],
+      to: [{type: 'region'}],
       validation: (Rule) => Rule.required(),
+      description: 'Geographic region for this article',
+    }),
+    defineField({
+      name: 'tags',
+      title: 'Tags',
+      type: 'array',
+      of: [{type: 'reference', to: [{type: 'tag'}]}],
+      validation: (Rule) => Rule.required().min(1),
+      description: 'Topic tags for this article (Conflict, Humanitarian, Trade, etc.)',
     }),
     defineField({
       name: 'author',
@@ -125,13 +134,16 @@ export default defineType({
       title: 'title',
       author: 'author.name',
       media: 'mainImage',
-      category: 'category.title',
+      region: 'region.title',
+      tags: 'tags',
     },
     prepare(selection) {
-      const {author, category} = selection
+      const {author, region, tags} = selection
+      const tagCount = tags?.length || 0
+      const tagText = tagCount > 0 ? `${tagCount} tag${tagCount > 1 ? 's' : ''}` : 'No tags'
       return {
         ...selection,
-        subtitle: `${author} • ${category}`,
+        subtitle: `${author} • ${region} • ${tagText}`,
       }
     },
   },

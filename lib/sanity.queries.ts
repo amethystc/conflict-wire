@@ -10,10 +10,17 @@ export const ARTICLE_FIELDS = `
     asset->,
     alt
   },
-  category->{
+  region->{
     _id,
     title,
-    slug
+    slug,
+    description
+  },
+  tags[]->{
+    _id,
+    title,
+    slug,
+    description
   },
   author->{
     _id,
@@ -84,20 +91,16 @@ export const magazineBySlugQuery = `
   }
 `
 
-// Get all categories with article count
-export const allCategoriesQuery = `
-  *[_type == "category"] | order(title asc) {
-    _id,
-    title,
-    slug,
-    description,
-    "articleCount": count(*[_type == "article" && references(^._id) && !(_id in path("drafts.**"))])
+// Get articles by region
+export const articlesByRegionQuery = `
+  *[_type == "article" && region._ref == $regionId && !(_id in path("drafts.**"))] | order(publishedAt desc) {
+    ${ARTICLE_FIELDS}
   }
 `
 
-// Get articles by category
-export const articlesByCategoryQuery = `
-  *[_type == "article" && category._ref == $categoryId && !(_id in path("drafts.**"))] | order(publishedAt desc) {
+// Get articles by tag
+export const articlesByTagQuery = `
+  *[_type == "article" && $tagId in tags[]._ref && !(_id in path("drafts.**"))] | order(publishedAt desc) {
     ${ARTICLE_FIELDS}
   }
 `

@@ -62,7 +62,8 @@ export interface Article {
     }
     alt?: string
   }
-  category: Category
+  region: Region
+  tags: Tag[]
   author: Author
   body: any[] // Portable Text
   featured: boolean
