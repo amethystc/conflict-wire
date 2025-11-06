@@ -17,16 +17,6 @@ export interface Author {
   bio?: string
 }
 
-export interface Category {
-  _id: string
-  _type: 'category'
-  title: string
-  slug: {
-    current: string
-  }
-  description?: string
-}
-
 export interface Region {
   _id: string
   _type: 'region'
