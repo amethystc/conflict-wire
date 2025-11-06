@@ -69,9 +69,18 @@ export default defineType({
             annotations: [
               {
                 name: 'technicalTerm',
-                type: 'technicalTerm',
+                type: 'object',
                 title: 'Technical Term',
                 icon: () => '📖',
+                fields: [
+                  {
+                    name: 'glossaryRef',
+                    type: 'reference',
+                    title: 'Glossary Term',
+                    to: [{type: 'glossary'}],
+                    description: 'Link to the glossary term for definition',
+                  },
+                ],
               },
             ],
           },

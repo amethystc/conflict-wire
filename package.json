@@ -1,5 +1,5 @@
 {
-  "name": "unknown-project",
+  "name": "conflict-wire-studio",
   "private": true,
   "version": "1.0.0",
   "main": "package.json",
@@ -9,7 +9,13 @@
     "start": "sanity start",
     "build": "sanity build",
     "deploy": "sanity deploy",
-    "deploy-graphql": "sanity graphql deploy"
+    "manage": "sanity manage",
+    "deploy-graphql": "sanity graphql deploy",
+    "format": "prettier --write .",
+    "lint": "eslint .",
+    "check-schema": "sanity schema extract",
+    "cors:add-localhost": "sanity cors add http://localhost:3000 --credentials",
+    "cors:add-production": "sanity cors add https://your-production-domain.com --credentials"
   },
   "keywords": [
     "sanity"
@@ -19,6 +25,7 @@
     "react": "^19.1",
     "react-dom": "^19.1",
     "sanity": "^4.10.3",
+    "sanity-plugin-media": "^4.0.0",
     "styled-components": "^6.1.18"
   },
   "devDependencies": {

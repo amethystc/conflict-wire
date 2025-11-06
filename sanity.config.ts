@@ -1,16 +1,17 @@
 import {defineConfig} from 'sanity'
 import {structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
+import {media} from 'sanity-plugin-media'
 import {schemaTypes} from './schemaTypes'
 
 export default defineConfig({
   name: 'conflict-wire',
-  title: 'Conflict Wire',
+  title: 'Conflict Wire Studio',
 
-  projectId: 'cokqkg27s1wfqc8t3q8ozd06',
+  projectId: 'tj8cgapn',
   dataset: 'production',
 
-  plugins: [structureTool(), visionTool()],
+  plugins: [structureTool(), visionTool(), media()],
 
   schema: {
     types: schemaTypes,
