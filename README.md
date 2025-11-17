@@ -80,7 +80,7 @@ Edit the `.env` file with your Sanity project details:
 
 ```env
 # Your Sanity project ID (already configured)
-SANITY_PROJECT_ID=tj8cgapn
+SANITY_PROJECT_ID=meyoc37a
 
 # Dataset name
 SANITY_DATASET=production
@@ -94,7 +94,7 @@ SANITY_PREVIEW_SECRET=your_secret_here
 
 ### 3. Get Your Project Credentials
 
-Your project ID is already configured: `tj8cgapn`
+Your project ID is already configured: `meyoc37a`
 
 To view project details:
 ```bash
@@ -184,7 +184,7 @@ sanity cors add https://your-production-domain.com --credentials
 
 ### Option 3: Using Sanity Dashboard
 
-1. Go to https://www.sanity.io/organizations/oqffWMJGe/project/tj8cgapn/api
+1. Go to https://www.sanity.io/manage/project/meyoc37a/api
 2. Scroll to **CORS Origins**
 3. Click **Add CORS Origin**
 4. Enter your origin URL
@@ -211,7 +211,7 @@ API tokens are required for write operations and private data access.
    Navigate to **API** → **Tokens** → **Add API Token**
 
 2. **Via Dashboard:**
-   Go to https://www.sanity.io/organizations/oqffWMJGe/project/tj8cgapn/api/tokens
+   Go to https://www.sanity.io/manage/project/meyoc37a/api/tokens
 
 ### Token Configuration
 
@@ -228,7 +228,7 @@ When creating a token:
 
 ```javascript
 // .env.local
-NEXT_PUBLIC_SANITY_PROJECT_ID=tj8cgapn
+NEXT_PUBLIC_SANITY_PROJECT_ID=meyoc37a
 NEXT_PUBLIC_SANITY_DATASET=production
 SANITY_API_TOKEN=your_token_here
 ```
@@ -479,6 +479,6 @@ For project-specific questions, contact the development team.
 
 ---
 
-**Project ID:** `tj8cgapn`
+**Project ID:** `meyoc37a`
 **Dataset:** `production`
 **Studio URL:** https://conflict-wire.sanity.studio (after deployment)

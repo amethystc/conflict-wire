@@ -13,7 +13,7 @@ npm install next-sanity @sanity/image-url @portabletext/react
 Create a `.env.local` file in your Next.js project:
 
 ```env
-NEXT_PUBLIC_SANITY_PROJECT_ID=tj8cgapn
+NEXT_PUBLIC_SANITY_PROJECT_ID=meyoc37a
 NEXT_PUBLIC_SANITY_DATASET=production
 SANITY_API_TOKEN=your_token_here
 ```

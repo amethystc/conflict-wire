@@ -11,7 +11,7 @@ import {defineCliConfig} from 'sanity/cli'
  * - For production: Update the script in package.json with your production domain
  *
  * Or manually via Sanity dashboard:
- * https://www.sanity.io/organizations/oqffWMJGe/project/tj8cgapn/api
+ * https://www.sanity.io/manage/project/meyoc37a/api
  *
  * Common CORS origins to add:
  * - http://localhost:3000 (Next.js dev)
@@ -22,7 +22,7 @@ import {defineCliConfig} from 'sanity/cli'
 
 export default defineCliConfig({
   api: {
-    projectId: process.env.SANITY_PROJECT_ID || 'tj8cgapn',
+    projectId: process.env.SANITY_PROJECT_ID || 'meyoc37a',
     dataset: process.env.SANITY_DATASET || 'production',
   },
   deployment: {
@@ -32,7 +32,7 @@ export default defineCliConfig({
      * Learn more at https://www.sanity.io/docs/cli#auto-updates
      */
     autoUpdates: true,
-    appId: 'fmls6i4gyqv09i6f0d2jidrx',
+    appId: 'x2sc5o1ilf92x7h4d73iqxy8',
   },
   /**
    * Studio hostname configuration
