@@ -101,3 +101,13 @@ export interface SiteSettings {
     linkedin?: string
   }
 }
+
+export interface Waitlist {
+  _id: string
+  _type: 'waitlist'
+  fullName: string
+  email: string
+  status: 'pending' | 'approved' | 'contacted'
+  signedUpAt: string
+  notes?: string
+}
