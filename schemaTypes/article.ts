@@ -45,20 +45,41 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'category',
+      title: 'Category',
+      type: 'reference',
+      to: [{type: 'category'}],
+      validation: (Rule) => Rule.required(),
+      description: 'Main topic category (Myanmar, Conflict, Humanitarian, Trade, Geopolitics, Space)',
+    }),
+    defineField({
       name: 'region',
       title: 'Region',
-      type: 'reference',
-      to: [{type: 'region'}],
-      validation: (Rule) => Rule.required(),
-      description: 'Geographic region for this article',
+      type: 'object',
+      fields: [
+        {
+          name: 'continent',
+          title: 'Continent',
+          type: 'reference',
+          to: [{type: 'continent'}],
+          description: 'Select continent',
+        },
+        {
+          name: 'country',
+          title: 'Country',
+          type: 'reference',
+          to: [{type: 'country'}],
+          description: 'Select country (should belong to the selected continent)',
+        },
+      ],
+      description: 'Geographic region for this article (optional)',
     }),
     defineField({
       name: 'tags',
-      title: 'Tags',
+      title: 'Additional Tags',
       type: 'array',
       of: [{type: 'reference', to: [{type: 'tag'}]}],
-      validation: (Rule) => Rule.required().min(1),
-      description: 'Topic tags for this article (Conflict, Humanitarian, Trade, etc.)',
+      description: 'Additional tags for this article (optional)',
     }),
     defineField({
       name: 'author',
@@ -122,6 +143,13 @@ export default defineType({
       initialValue: false,
     }),
     defineField({
+      name: 'exclusive',
+      title: 'Exclusive Article',
+      type: 'boolean',
+      description: 'Mark as exclusive content',
+      initialValue: false,
+    }),
+    defineField({
       name: 'publishedAt',
       title: 'Published at',
       type: 'datetime',
@@ -134,16 +162,19 @@ export default defineType({
       title: 'title',
       author: 'author.name',
       media: 'mainImage',
-      region: 'region.title',
-      tags: 'tags',
+      category: 'category.title',
+      exclusive: 'exclusive',
+      featured: 'featured',
     },
     prepare(selection) {
-      const {author, region, tags} = selection
-      const tagCount = tags?.length || 0
-      const tagText = tagCount > 0 ? `${tagCount} tag${tagCount > 1 ? 's' : ''}` : 'No tags'
+      const {author, category, exclusive, featured} = selection
+      const badges = []
+      if (exclusive) badges.push('🔒 Exclusive')
+      if (featured) badges.push('⭐ Featured')
+      const badgeText = badges.length > 0 ? ` • ${badges.join(' • ')}` : ''
       return {
         ...selection,
-        subtitle: `${author} • ${region} • ${tagText}`,
+        subtitle: `${author} • ${category || 'No category'}${badgeText}`,
       }
     },
   },

@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx sanity:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

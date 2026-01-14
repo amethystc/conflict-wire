@@ -1,6 +1,8 @@
 import article from './article'
 import author from './author'
 import category from './category'
+import continent from './continent'
+import country from './country'
 import glossary from './glossary'
 import magazine from './magazine'
 import region from './region'
@@ -13,6 +15,8 @@ export const schemaTypes = [
   article,
   author,
   category,
+  continent,
+  country,
   glossary,
   magazine,
   region,

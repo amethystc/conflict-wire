@@ -16,6 +16,8 @@
     "check-schema": "sanity schema extract",
     "create-categories": "tsx scripts/create-categories.ts",
     "export-waitlist": "tsx scripts/export-waitlist.ts",
+    "populate-regions": "tsx scripts/populate-regions.ts",
+    "test-token": "tsx scripts/test-token.ts",
     "cors:add-localhost": "sanity cors add http://localhost:3000 --credentials",
     "cors:add-production": "sanity cors add https://your-production-domain.com --credentials"
   },

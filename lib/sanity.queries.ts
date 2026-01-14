@@ -10,11 +10,22 @@ export const ARTICLE_FIELDS = `
     asset->,
     alt
   },
-  region->{
-    _id,
-    title,
-    slug,
-    description
+  region {
+    continent->{
+      _id,
+      title,
+      slug
+    },
+    country->{
+      _id,
+      title,
+      slug,
+      continent->{
+        _id,
+        title,
+        slug
+      }
+    }
   },
   tags[]->{
     _id,

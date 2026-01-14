@@ -17,6 +17,26 @@ export interface Author {
   bio?: string
 }
 
+export interface Continent {
+  _id: string
+  _type: 'continent'
+  title: string
+  slug: {
+    current: string
+  }
+  countries?: Country[]
+}
+
+export interface Country {
+  _id: string
+  _type: 'country'
+  title: string
+  slug: {
+    current: string
+  }
+  continent: Continent
+}
+
 export interface Region {
   _id: string
   _type: 'region'
@@ -25,6 +45,12 @@ export interface Region {
     current: string
   }
   description?: string
+}
+
+// New region structure for articles
+export interface ArticleRegion {
+  continent?: Continent
+  country?: Country
 }
 
 export interface Tag {
@@ -52,7 +78,7 @@ export interface Article {
     }
     alt?: string
   }
-  region: Region
+  region?: ArticleRegion
   tags: Tag[]
   author: Author
   body: any[] // Portable Text
