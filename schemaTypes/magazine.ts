@@ -13,12 +13,12 @@ export default defineType({
     }),
     defineField({
       name: 'magazinePdf',
-      title: 'FULL MAGAZINE PDF UPLOAD',
+      title: 'PREVIEW PDF (Public)',
       type: 'file',
       options: {
         accept: '.pdf',
       },
-      description: 'Upload the full magazine PDF here.',
+      description: '⚠️ UPLOAD A PREVIEW/SAMPLE ONLY. This file is publicly accessible for free. The full PDF should be delivered by your payment provider (Stripe, Gumroad, etc.) after purchase.',
     }),
     defineField({
       name: 'slug',
