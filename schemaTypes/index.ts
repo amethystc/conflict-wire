@@ -10,6 +10,8 @@ import siteSettings from './siteSettings'
 import tag from './tag'
 import technicalTerm from './technicalTerm'
 import waitlist from './waitlist'
+import member from './member'
+import exclusive from './exclusive'
 
 export const schemaTypes = [
   article,
@@ -24,4 +26,6 @@ export const schemaTypes = [
   tag,
   technicalTerm,
   waitlist,
+  member,
+  exclusive,
 ]
