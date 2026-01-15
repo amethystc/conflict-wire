@@ -1,4 +1,4 @@
-import {defineField, defineType} from 'sanity'
+import { defineField, defineType } from 'sanity'
 
 export default defineType({
   name: 'magazine',
@@ -10,6 +10,15 @@ export default defineType({
       title: 'Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'magazinePdf',
+      title: 'FULL MAGAZINE PDF UPLOAD',
+      type: 'file',
+      options: {
+        accept: '.pdf',
+      },
+      description: 'Upload the full magazine PDF here.',
     }),
     defineField({
       name: 'slug',
@@ -26,6 +35,19 @@ export default defineType({
       title: 'Issue Number',
       type: 'number',
       validation: (Rule) => Rule.required().integer().positive(),
+    }),
+    defineField({
+      name: 'price',
+      title: 'Price',
+      type: 'number',
+      description: 'Price of the magazine issue (e.g. 5.99)',
+      validation: (Rule) => Rule.min(0),
+    }),
+    defineField({
+      name: 'checkoutUrl',
+      title: 'Checkout URL',
+      type: 'url',
+      description: 'Link to the payment/checkout page for this issue',
     }),
     defineField({
       name: 'coverImage',
@@ -59,13 +81,6 @@ export default defineType({
       initialValue: () => new Date().toISOString(),
     }),
     defineField({
-      name: 'articles',
-      title: 'Articles',
-      type: 'array',
-      of: [{type: 'reference', to: [{type: 'article'}]}],
-      description: 'Articles included in this magazine issue',
-    }),
-    defineField({
       name: 'featured',
       title: 'Featured Magazine',
       type: 'boolean',
@@ -80,7 +95,7 @@ export default defineType({
       media: 'coverImage',
     },
     prepare(selection) {
-      const {title, issueNumber} = selection
+      const { title, issueNumber } = selection
       return {
         ...selection,
         subtitle: `Issue #${issueNumber}`,
